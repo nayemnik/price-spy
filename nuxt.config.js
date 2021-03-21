@@ -30,6 +30,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/axios.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -59,23 +60,10 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    port: '3001', // debug
-    // prefix: '/api/',
-    xsrfHeaderName: 'CSRF-TOKEN'
+    // port: '3001', // debug
+    prefix: '/api/',
   },
   auth: {
-    strategies: {
-      cookie: {
-        cookie: {
-          name: 'XSRF-TOKEN',
-        },
-        endpoints: {
-          csrf: {
-            url: ''
-          }
-        }
-      },
-    }
   },
   router: {
     parseQuery(query) {
@@ -84,7 +72,7 @@ export default {
     stringifyQuery(query) {
       const result = require('qs').stringify(query)
       return result ? '?' + result : ''
-    }
+    },
   },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -95,7 +83,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    // watch: ['@/api'],
+    watch: ['@/api'],
     cache: true,
     parallel: true,
   }

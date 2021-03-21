@@ -252,7 +252,7 @@
 
 <script>
 export default {
-  name: 'search',
+  name: 'Search',
   data() {
     return {
       query: this.$route.params.query,

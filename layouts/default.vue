@@ -4,7 +4,7 @@
     <Aside />
     <Nuxt
       keep-alive
-      :keep-alive-props="{exclude:['search']}"
+      :keep-alive-props="{exclude:['Search']}"
     />
     <Footer />
   </div>

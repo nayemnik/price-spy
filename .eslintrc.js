@@ -21,5 +21,6 @@ module.exports = {
     'require-await': 1,
     curly: 0,
     'vue/no-v-html': 0,
+    'no-console': 0,
   }
 }
