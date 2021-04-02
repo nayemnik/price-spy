@@ -99,4 +99,7 @@ export default {
       ],
     },
   },
+  server: {
+    ...config.server,
+  },
 };
