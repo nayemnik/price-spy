@@ -6,10 +6,7 @@
       <div class="panel">
         <div class="panel-img">
           <a href="#">
-            <img
-              src="/img/home-1.jpg"
-              alt=""
-            >
+            <img src="/img/home-1.jpg" alt="" />
           </a>
         </div>
         <div class="panel-content">
@@ -17,27 +14,18 @@
             <a href="#">Game of The Month: Hitman 3</a>
           </h4>
           <p>
-            Hitman 3 is the latest and final game in the World of Assassination trilogy. With better-looking graphics,
-            improved gameplay, and a thrilling story, this is a fitting end to the popular reboot of the Hitman series.
+            Hitman 3 is the latest and final game in the World of Assassination trilogy. With
+            better-looking graphics, improved gameplay, and a thrilling story, this is a fitting end
+            to the popular reboot of the Hitman series.
           </p>
-          <a
-            type="button"
-            class="btn btn-blue"
-            title=""
-            href="/blog/blogname"
-          >
-            Read more
-          </a>
+          <a type="button" class="btn btn-blue" title="" href="/blog/blogname"> Read more </a>
         </div>
       </div>
 
       <div class="panel">
         <div class="panel-img">
           <a href="#">
-            <img
-              src="/img/home-2.jpg"
-              alt=""
-            >
+            <img src="/img/home-2.jpg" alt="" />
           </a>
         </div>
         <div class="panel-content">
@@ -45,29 +33,18 @@
             <a href="#">PriceSpy’s Health & Wellbeing Week</a>
           </h4>
           <p>
-            To help you in the last week of January to stay positive and feel energised we have created a health &
-            wellbeing
-            initiative. We have created home workouts that can include the whole family, tips to stay relaxed, healthy
-            meals
-            that
-            you can cook and the top 5 most popular home workout products.
+            To help you in the last week of January to stay positive and feel energised we have
+            created a health & wellbeing initiative. We have created home workouts that can include
+            the whole family, tips to stay relaxed, healthy meals that you can cook and the top 5
+            most popular home workout products.
           </p>
-          <a
-            type="button"
-            class="btn btn-blue"
-            title=""
-            href="/blog/blogname"
-          >
-            Read more
-          </a>
+          <a type="button" class="btn btn-blue" title="" href="/blog/blogname"> Read more </a>
         </div>
       </div>
 
       <section>
         <div class="sec-title">
-          <h2 class="title">
-            Popular products
-          </h2>
+          <h2 class="title">Popular products</h2>
         </div>
         <div class="cards has-show-more">
           <ul>
@@ -75,16 +52,10 @@
               <a href="#">
                 <div class="label label-green">-18%</div>
                 <div class="card-img">
-                  <img
-                    src="/img/card-1.jpg"
-                    alt=""
-                  >
+                  <img src="/img/card-1.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -97,16 +68,10 @@
             <li class="card">
               <a href="#">
                 <div class="card-img">
-                  <img
-                    src="/img/card-2.jpg"
-                    alt=""
-                  >
+                  <img src="/img/card-2.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -119,16 +84,10 @@
             <li class="card">
               <a href="#">
                 <div class="card-img">
-                  <img
-                    src="/img/card-1.jpg"
-                    alt=""
-                  >
+                  <img src="/img/card-1.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -141,16 +100,10 @@
             <li class="card">
               <a href="#">
                 <div class="card-img">
-                  <img
-                    src="/img/card-2.jpg"
-                    alt=""
-                  >
+                  <img src="/img/card-2.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -172,13 +125,8 @@
 
       <section>
         <div class="sec-title">
-          <h2 class="title">
-            Daily Deals
-          </h2>
-          <a
-            class="view-all"
-            href="#"
-          >View all deals</a>
+          <h2 class="title">Daily Deals</h2>
+          <a class="view-all" href="#">View all deals</a>
         </div>
         <div class="cards has-show-more">
           <ul>
@@ -186,16 +134,10 @@
               <a href="#">
                 <div class="label label-green">-18%</div>
                 <div class="card-img">
-                  <img
-                    src="/img/new-1.jpg"
-                    alt=""
-                  >
+                  <img src="/img/new-1.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -209,16 +151,10 @@
             <li class="card">
               <a href="#">
                 <div class="card-img">
-                  <img
-                    src="/img/new-2.jpg"
-                    alt=""
-                  >
+                  <img src="/img/new-2.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -232,16 +168,10 @@
             <li class="card">
               <a href="#">
                 <div class="card-img">
-                  <img
-                    src="/img/new-3.jpg"
-                    alt=""
-                  >
+                  <img src="/img/new-3.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -250,10 +180,7 @@
                 <div class="price">
                   <strong>£449.99</strong>
                   <div class="store-logo">
-                    <img
-                      src="/img/store_asos.png"
-                      alt=""
-                    >
+                    <img src="/img/store_asos.png" alt="" />
                   </div>
                 </div>
               </a>
@@ -261,16 +188,10 @@
             <li class="card">
               <a href="#">
                 <div class="card-img">
-                  <img
-                    src="/img/new-4.jpg"
-                    alt=""
-                  >
+                  <img src="/img/new-4.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -299,16 +220,9 @@
 
       <section>
         <div class="sec-title">
-          <h2 class="title">
-            New product releases
-          </h2>
-          <p class="sub">
-            Inspired by your browsing history
-          </p>
-          <a
-            class="view-all"
-            href="#"
-          >View all deals</a>
+          <h2 class="title">New product releases</h2>
+          <p class="sub">Inspired by your browsing history</p>
+          <a class="view-all" href="#">View all deals</a>
         </div>
         <div class="cards has-show-more">
           <ul>
@@ -316,16 +230,10 @@
               <a href="#">
                 <div class="label label-green">-18%</div>
                 <div class="card-img">
-                  <img
-                    src="/img/new-1.jpg"
-                    alt=""
-                  >
+                  <img src="/img/new-1.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -336,24 +244,16 @@
                 </div>
               </a>
               <div class="card-foo">
-                <button class="btn">
-                  <i class="fa fa-bell-o" /> <span>Price alert</span>
-                </button>
+                <button class="btn"><i class="far fa-bell" /> <span>Price alert</span></button>
               </div>
             </li>
             <li class="card">
               <a href="#">
                 <div class="card-img">
-                  <img
-                    src="/img/new-2.jpg"
-                    alt=""
-                  >
+                  <img src="/img/new-2.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -363,24 +263,16 @@
                 </div>
               </a>
               <div class="card-foo">
-                <button class="btn">
-                  <i class="fa fa-bell-o" /> <span>Price alert</span>
-                </button>
+                <button class="btn"><i class="far fa-bell" /> <span>Price alert</span></button>
               </div>
             </li>
             <li class="card">
               <a href="#">
                 <div class="card-img">
-                  <img
-                    src="/img/new-3.jpg"
-                    alt=""
-                  >
+                  <img src="/img/new-3.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -391,24 +283,16 @@
                 </div>
               </a>
               <div class="card-foo">
-                <button class="btn">
-                  <i class="fa fa-bell-o" /> <span>Price alert</span>
-                </button>
+                <button class="btn"><i class="far fa-bell" /> <span>Price alert</span></button>
               </div>
             </li>
             <li class="card">
               <a href="#">
                 <div class="card-img">
-                  <img
-                    src="/img/new-4.jpg"
-                    alt=""
-                  >
+                  <img src="/img/new-4.jpg" alt="" />
                 </div>
                 <div class="stars">
-                  <div
-                    class="star"
-                    style="width: 50%"
-                  >
+                  <div class="star" style="width: 50%">
                     <i class="fa fa-star" />
                   </div>
                 </div>
@@ -419,9 +303,7 @@
                 </div>
               </a>
               <div class="card-foo">
-                <button class="btn">
-                  <i class="fa fa-bell-o" /> <span>Price alert</span>
-                </button>
+                <button class="btn"><i class="far fa-bell" /> <span>Price alert</span></button>
               </div>
             </li>
           </ul>
@@ -438,5 +320,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head: {
+    title: 'Home',
+  },
+};
 </script>

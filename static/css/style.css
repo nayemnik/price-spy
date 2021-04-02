@@ -688,7 +688,7 @@ h6 {
   margin: 0 0.5rem;
   content: "";
   display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
+  font: normal normal normal 14px/1 "Font Awesome 5 Pro";
   font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -1157,7 +1157,7 @@ input[type=search]::-webkit-search-results-decoration {
 }
 
 .stars {
-  width: calc(0.95rem * 5);
+  width: calc(15.75px * 5);
   position: relative;
   height: 1rem;
 }
@@ -1170,14 +1170,14 @@ input[type=search]::-webkit-search-results-decoration {
   right: 0;
   color: #d7d7d7;
   display: inline-flex;
-  font: normal normal normal 14px/1 FontAwesome;
+  font: normal normal normal 14px/1 "Font Awesome 5 Pro";
   font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   z-index: 1;
 }
 .stars.sm {
-  width: calc(1.15rem * 5);
+  width: calc(19px * 5);
   font-size: 1.2rem;
 }
 .stars.sm, .stars.sm::before {
@@ -1928,7 +1928,7 @@ article main {
 }
 
 .layout {
-  padding: 6.5rem 0 0 5rem;
+  padding: 0.5rem 0 0 5rem;
   transition: all 0.25s linear;
 }
 
