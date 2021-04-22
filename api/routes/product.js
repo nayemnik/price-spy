@@ -7,7 +7,9 @@ const router = Router();
 
 router.get('/:id', async function (req, res) {
   const id = req.params.id;
-  const product = await Product.findById(id).lean({ virtuals: true }).populate('reviews');
+  const product = await Product.findById(id)
+    .lean({ virtuals: true })
+    .populate(req.query.populate || 'reviews');
   res.json(product);
 });
 
@@ -21,6 +23,7 @@ router.get('/category/:id', async function (req, res) {
       lean: { virtuals: true },
       populate: 'reviews',
       limit: 16,
+      sort: { updated_at: -1 },
       ...req.query,
     }
   );

@@ -12,7 +12,9 @@ router.get('/', async function (req, res) {
 });
 
 router.get('/:id', async function (req, res) {
-  const cate = await Category.findById(req.params.id).lean().populate('children');
+  const cate = await Category.findById(req.params.id)
+    .populate(req.query.populate || 'children')
+    .lean({ virtuals: true });
   res.json(cate);
 });
 

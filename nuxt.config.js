@@ -44,7 +44,7 @@ export default {
   css: ['@/assets/styles.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/filter.js'],
+  plugins: ['@/plugins/filter.js', '@/plugins/slug.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -63,7 +63,7 @@ export default {
    ** Server Middleware
    */
   serverMiddleware: {
-    '/api': '~/api',
+    '/api': !config.debug && '~/api',
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -89,7 +89,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    watch: ['@/api'],
+    watch: !config.debug ? ['@/api'] : [],
     cache: true,
     parallel: true,
     babel: {

@@ -1070,6 +1070,7 @@ input[type=search]::-webkit-search-results-decoration {
   max-height: 3.1rem;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
 }
 .card-name + .card-sub-title {
   margin-top: -0.75rem;
@@ -1184,7 +1185,7 @@ input[type=search]::-webkit-search-results-decoration {
   height: 1.2rem;
 }
 .stars.lg {
-  width: calc(1.4rem * 5);
+  width: calc(23.66px * 5);
   font-size: 1.5rem;
 }
 .stars.lg, .stars.lg::before {
@@ -1288,6 +1289,7 @@ input[type=search]::-webkit-search-results-decoration {
 }
 .sticky-item .rating-info {
   justify-content: center;
+  align-items: center;
 }
 .sticky-item .rating-info .point,
 .sticky-item .rating-info .review-count {
@@ -1313,6 +1315,7 @@ input[type=search]::-webkit-search-results-decoration {
 .sticky-item.active {
   opacity: 1;
   background: #fff;
+  cursor: default;
 }
 
 .progress {

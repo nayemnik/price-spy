@@ -20,7 +20,7 @@
         </div>
         <ul class="category-list">
           <li v-for="child in cate.children" :key="child._id" class="category-item">
-            <nuxt-link class="category-link" :to="'/category/' + slug(child)">
+            <nuxt-link class="category-link" :to="'/category/' + $slug(child.name, child._id)">
               <img :src="child.img" class="category-img" />
               <span class="category-name">
                 {{ child.name }}
@@ -34,7 +34,7 @@
           </div>
           <ul class="listing">
             <li v-for="product in products.docs" :key="product._id" class="card">
-              <nuxt-link :to="`/product/${slug(product)}`">
+              <nuxt-link :to="`/product/${$slug(product.name, product._id)}`">
                 <div class="card-img">
                   <img :src="product.thumbnail_uri" :alt="product.name" />
                 </div>
@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import slug from 'slug';
 import { idFromSlug } from '@/utils';
 export default {
   async asyncData({ $axios, params, redirect }) {
@@ -80,11 +79,6 @@ export default {
     return {
       title: this.cate.name || 'Category',
     };
-  },
-  methods: {
-    slug(item) {
-      return slug(item.name) + '-' + item._id;
-    },
   },
 };
 </script>

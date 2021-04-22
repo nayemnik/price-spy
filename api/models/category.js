@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
+const mongooseLeanVirtuals = require('mongoose-lean-virtuals');
 
 const Schema = mongoose.Schema;
 const modelName = 'Category';
@@ -27,6 +28,7 @@ CategorySchema.virtual('children', {
 });
 
 CategorySchema.plugin(mongoosePaginate);
+CategorySchema.plugin(mongooseLeanVirtuals);
 
 CategorySchema.methods.buildAncestors = async function () {
   const Category = mongoose.model(modelName);
