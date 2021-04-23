@@ -23,11 +23,20 @@ router.get('/category/:id', async function (req, res) {
       lean: { virtuals: true },
       populate: 'reviews',
       limit: 16,
-      sort: { updated_at: -1 },
+      // sort: { updated_at: -1 },
       ...req.query,
     }
   );
   res.json(products);
+});
+
+router.get('/relates/:id', async function (req, res) {
+  const id = req.params.id;
+  const product = await Product.findById(id).lean();
+  const relates = await Product.find({ _id: { $gt: id }, category: product.category })
+    .limit(6)
+    .lean();
+  res.json(relates);
 });
 
 module.exports = router;

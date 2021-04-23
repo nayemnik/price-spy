@@ -24,61 +24,6 @@
       <div v-html="product.description" />
     </div>
   </section>
-  <!--
-      <section>
-        <div class="sec-title">
-          <h2 class="title">Others visited</h2>
-        </div>
-        <div class="cards others-visited">
-          <ul>
-            <li class="card">
-              <a href="#">
-                <div class="card-img">
-                  <img src="/img/card-1.jpg" alt="" />
-                </div>
-                <h4 class="card-name">Sony PlayStation 5 (PS5)</h4>
-                <div class="price">
-                  <strong>£449.99</strong>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <div class="sec-title">
-          <h2 class="title">Recently viewed products</h2>
-        </div>
-        <div class="cards">
-          <ul>
-            <li class="card">
-              <a href="#">
-                <div class="label label-green">-18%</div>
-                <div class="card-img">
-                  <img src="/img/card-1.jpg" alt="" />
-                </div>
-                <div class="stars">
-                  <div class="star" style="width: 50%">
-                    <i class="fa fa-star" />
-                  </div>
-                </div>
-                <h4 class="card-name">Sony PlayStation 5 (PS5)</h4>
-                <div class="price">
-                  <strong>£449.99</strong>
-                </div>
-              </a>
-            </li>
-          </ul>
-          <div class="toggle-show-less">
-            <button class="btn btn-link">
-              <span>Show more</span>
-              <i class="fa fa-angle-down" />
-            </button>
-          </div>
-        </div>
-      </section>
-      -->
 </template>
 
 <script>

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1 class="title">Lowest price {{ price }} ({{ product.updated_at | date('yyyy-MM-dd') }})</h1>
+    <h1 class="title">
+      Lowest price {{ price.formatedAmount }} ({{ product.updated_at | date('yyyy-MM-dd') }})
+    </h1>
     <line-chart :chart-data="chartData" :options="chartOptions" :height="400" :width="1200" />
   </div>
 </template>
@@ -50,7 +52,7 @@ export default {
   },
   computed: {
     price() {
-      return this.product.minActivityAmount?.value ?? this.product.minAmount.value;
+      return this.product.minActivityAmount ?? this.product.minAmount;
     },
   },
   mounted() {
@@ -64,7 +66,7 @@ export default {
           {
             label: 'Price',
             backgroundColor: '#7cb5ec',
-            data: [this.price],
+            data: [this.price.value],
           },
         ],
       };

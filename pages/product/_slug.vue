@@ -132,6 +132,72 @@
       </div>
       <!-- /End .sticky-track -->
       <nuxt-child :product="product" :category="category" />
+
+      <section>
+        <div class="sec-title">
+          <h2 class="title">Others visited</h2>
+        </div>
+        <div class="cards others-visited">
+          <ul>
+            <li v-for="p in relates" :key="p._id" class="card">
+              <nuxt-link :to="`/product/${$slug(p.name, p._id)}`">
+                <div class="card-img">
+                  <img :src="p.thumbnail_uri" />
+                </div>
+                <div class="stars">
+                  <div class="star" :style="{ width: (p.rating / 5) * 100 + '%' }">
+                    <i class="fa fa-star" />
+                  </div>
+                </div>
+                <h4 class="card-name">{{ p.name }}</h4>
+                <div class="price">
+                  <strong>
+                    {{
+                      p.minActivityAmount
+                        ? p.minActivityAmount.formatedAmount
+                        : p.minAmount.formatedAmount
+                    }}
+                  </strong>
+                </div>
+              </nuxt-link>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!--
+      <section>
+        <div class="sec-title">
+          <h2 class="title">Recently viewed products</h2>
+        </div>
+        <div class="cards">
+          <ul>
+            <li class="card">
+              <a href="#">
+                <div class="label label-green">-18%</div>
+                <div class="card-img">
+                  <img src="/img/card-1.jpg" alt="" />
+                </div>
+                <div class="stars">
+                  <div class="star" style="width: 50%">
+                    <i class="fa fa-star" />
+                  </div>
+                </div>
+                <h4 class="card-name">Sony PlayStation 5 (PS5)</h4>
+                <div class="price">
+                  <strong>£449.99</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <div class="toggle-show-less">
+            <button class="btn btn-link">
+              <span>Show more</span>
+              <i class="fa fa-angle-down" />
+            </button>
+          </div>
+        </div>
+      </section>
+      -->
     </main>
   </article>
 </template>
@@ -148,7 +214,8 @@ export default {
     const category = await $axios.$get('/category/' + product.category, {
       params: { populate: 'ancestors' },
     });
-    return { id, product, category };
+    const relates = await $axios.$get('/product/relates/' + id);
+    return { id, product, category, relates };
   },
   data() {
     return {
@@ -157,6 +224,7 @@ export default {
         reviews: [],
       },
       category: [],
+      relates: [],
     };
   },
   head() {
@@ -170,7 +238,9 @@ export default {
       return this.category.ancestors.slice().reverse();
     },
     price() {
-      return this.product.minActivityAmount?.value ?? this.product.minAmount.value;
+      return (
+        this.product.minActivityAmount?.formatedAmount ?? this.product.minAmount.formatedAmount
+      );
     },
   },
 };

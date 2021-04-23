@@ -3,44 +3,6 @@
     <main>
       <!-- {{ categories-partial }} -->
       <CategoryHeader />
-      <div class="panel">
-        <div class="panel-img">
-          <a href="#">
-            <img src="/img/home-1.jpg" alt="" />
-          </a>
-        </div>
-        <div class="panel-content">
-          <h4>
-            <a href="#">Game of The Month: Hitman 3</a>
-          </h4>
-          <p>
-            Hitman 3 is the latest and final game in the World of Assassination trilogy. With
-            better-looking graphics, improved gameplay, and a thrilling story, this is a fitting end
-            to the popular reboot of the Hitman series.
-          </p>
-          <a type="button" class="btn btn-blue" title="" href="/blog/blogname"> Read more </a>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="panel-img">
-          <a href="#">
-            <img src="/img/home-2.jpg" alt="" />
-          </a>
-        </div>
-        <div class="panel-content">
-          <h4>
-            <a href="#">PriceSpy’s Health & Wellbeing Week</a>
-          </h4>
-          <p>
-            To help you in the last week of January to stay positive and feel energised we have
-            created a health & wellbeing initiative. We have created home workouts that can include
-            the whole family, tips to stay relaxed, healthy meals that you can cook and the top 5
-            most popular home workout products.
-          </p>
-          <a type="button" class="btn btn-blue" title="" href="/blog/blogname"> Read more </a>
-        </div>
-      </div>
 
       <section>
         <div class="sec-title">
