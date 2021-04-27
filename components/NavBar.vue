@@ -246,6 +246,11 @@ export default {
       showCate: false,
     };
   },
+  watch: {
+    '$route.params.query'(query) {
+      this.query = query || '';
+    },
+  },
   methods: {
     search() {
       if (!this.query || this.query === this.$route.params.query) return;

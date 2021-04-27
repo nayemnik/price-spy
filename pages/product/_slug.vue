@@ -206,6 +206,7 @@
 import { idFromSlug } from '@/utils';
 
 export default {
+  scrollToTop: true,
   async asyncData({ $axios, params, redirect }) {
     const id = idFromSlug(params.slug);
     if (!id) return redirect('/404');

@@ -4,6 +4,20 @@ const Product = require('../models/product');
 const Category = require('../models/category');
 
 const router = Router();
+module.exports = router;
+
+router.get('/new', async function (req, res) {
+  try {
+    const newProducts = await Product.find({ status: 2 })
+      .sort({ updated_at: -1 })
+      .limit(16)
+      .populate('reviews category')
+      .lean({ virtuals: true });
+    res.json(newProducts);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
 router.get('/:id', async function (req, res) {
   const id = req.params.id;
@@ -35,8 +49,7 @@ router.get('/relates/:id', async function (req, res) {
   const product = await Product.findById(id).lean();
   const relates = await Product.find({ _id: { $gt: id }, category: product.category })
     .limit(6)
-    .lean();
+    .populate('reviews category')
+    .lean({ virtuals: true });
   res.json(relates);
 });
-
-module.exports = router;
