@@ -3,7 +3,7 @@
     <div class="review-left">
       <h1 class="title">Reviews</h1>
       <div class="sorted-by">Sorted by date</div>
-      <div v-for="review in reviews" :key="review._id" class="review-item">
+      <div v-for="review in reviews.docs" :key="review._id" class="review-item">
         <div class="user">{{ review.username }}</div>
         <div class="header">
           <div class="stars">
@@ -17,6 +17,7 @@
           {{ review.content }}
         </div>
       </div>
+      <Paginator v-bind="reviews" style="margin-top: 1rem" />
     </div>
     <div class="review-right">
       <h1 class="title">Product rating</h1>
@@ -28,7 +29,7 @@
           </div>
         </div>
       </div>
-      <div>{{ product.reviews.length }} reviews</div>
+      <div>{{ product.reviewCount }} reviews</div>
     </div>
   </div>
 </template>
@@ -51,10 +52,16 @@ export default {
     };
   },
   async fetch() {
-    // TODO: get reviews paging
-    const product = await this.$axios.$get('/product/' + this.product._id);
-    if (!product) return this.$router.redirect('/404');
-    this.reviews = product.reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+    this.reviews = await this.$axios.$get(`/product/${this.product._id}/reviews`, {
+      params: { page: this.$route.query.page },
+    });
+  },
+  watch: {
+    $route(to, from) {
+      if (to.path === from.path) {
+        this.$fetch();
+      }
+    },
   },
 };
 </script>

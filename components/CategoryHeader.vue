@@ -5,7 +5,7 @@
     </div>
     <ul class="category-list">
       <li class="category-item">
-        <nuxt-link class="category-link" to="/theme/daily-deals">
+        <nuxt-link class="category-link" to="/">
           <img class="category-img" src="/img/banner_logo_big.png" alt="" /><span
             class="category-name"
             >Daily Deals</span

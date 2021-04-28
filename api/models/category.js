@@ -10,7 +10,7 @@ const CategorySchema = new Schema(
     name: { type: String, required: true },
     url: { type: String, required: true },
     img: { type: String },
-    parent: { type: Schema.Types.ObjectId, ref: 'Category' },
+    parent: { type: Schema.Types.ObjectId, ref: 'Category', index: true },
     ancestors: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
   },
   {

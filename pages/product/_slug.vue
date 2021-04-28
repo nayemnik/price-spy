@@ -38,7 +38,7 @@
               </div>
             </div>
             <div class="review-point">{{ +product.rating.toFixed(1) }}</div>
-            <div class="review-count">({{ product.reviews.length }} reviews)</div>
+            <div class="review-count">({{ product.reviewCount }} reviews)</div>
           </nuxt-link>
           <!-- <ul class="product-list-info list-default">
           <li>
@@ -118,7 +118,7 @@
               </div>
             </div>
             <span class="review-point">{{ +product.rating.toFixed(1) }}</span>
-            <span class="review-count">({{ product.reviews.length }})</span>
+            <span class="review-count">({{ product.reviewCount }})</span>
           </div>
         </nuxt-link>
         <nuxt-link

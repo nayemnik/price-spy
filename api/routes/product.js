@@ -1,7 +1,11 @@
 const { Router } = require('express');
+const { Types } = require('mongoose');
+const { differenceInDays } = require('date-fns');
 
 const Product = require('../models/product');
 const Category = require('../models/category');
+const Review = require('../models/review');
+const PriceHistory = require('../models/price-history');
 
 const router = Router();
 module.exports = router;
@@ -24,7 +28,92 @@ router.get('/:id', async function (req, res) {
   const product = await Product.findById(id)
     .lean({ virtuals: true })
     .populate(req.query.populate || 'reviews');
-  res.json(product);
+  const { reviews, ...others } = product;
+  res.json(others);
+});
+
+const reviewLimits = differenceInDays(new Date(), new Date(2021, 3, 27));
+router.get('/:id/reviews', async function (req, res) {
+  const id = req.params.id;
+  const reviews = await Review.find({ product: id }, null, {
+    lean: true,
+    sort: { date: 1 },
+    limit: reviewLimits,
+  });
+  const query = req.query;
+  const page = +query.page || 1;
+  const limit = +query.limit || 20;
+  const offset = limit * (page - 1);
+  const docs = reviews.slice(offset, limit * page);
+  const totalPages = Math.ceil(reviews.length / limit);
+  res.json({
+    docs,
+    hasPrevPage: offset > 0,
+    hasNextPage: page < totalPages,
+    limit,
+    offset,
+    page,
+    totalDocs: reviews.length,
+    totalPages,
+  });
+});
+
+router.get('/:id/price-history', async function (req, res) {
+  const id = req.params.id;
+  const priceHistory = await PriceHistory.paginate(
+    { product: id },
+    {
+      lean: true,
+      ...req.query,
+    }
+  );
+  priceHistory.docs.push({
+    _id: '60822669a3f80c1c8c95b8cc',
+    maxAmount: {
+      currency: 'USD',
+      formatedAmount: 'US $44.03',
+      value: 44.03,
+    },
+    minAmount: {
+      currency: 'USD',
+      formatedAmount: 'US $44.03',
+      value: 44.03,
+    },
+    created_at: '2021-04-07T01:57:20.239Z',
+    updated_at: '2021-04-07T01:57:20.239Z',
+    maxActivityAmount: {
+      currency: 'USD',
+      formatedAmount: 'US $23.01',
+      value: 23.01,
+    },
+    minActivityAmount: {
+      currency: 'USD',
+      formatedAmount: 'US $23.01',
+      value: 23.01,
+    },
+    id: '60822669a3f80c1c8c95b8cc',
+  });
+  res.json(priceHistory);
+});
+router.get('/:id/lowest-price', async function (req, res) {
+  const id = req.params.id;
+  const agg = await PriceHistory.aggregate([
+    {
+      $match: {
+        product: Types.ObjectId(id),
+      },
+    },
+    {
+      $set: {
+        price: {
+          $min: ['$minAmount.value', '$minActivityAmount.value'],
+        },
+      },
+    },
+    { $sort: { price: 1 } },
+    { $limit: 1 },
+  ]);
+  res.send(agg[0]);
 });
 
 router.get('/category/:id', async function (req, res) {
@@ -36,7 +125,7 @@ router.get('/category/:id', async function (req, res) {
     {
       lean: { virtuals: true },
       populate: 'reviews',
-      limit: 16,
+      limit: 20,
       // sort: { updated_at: -1 },
       ...req.query,
     }

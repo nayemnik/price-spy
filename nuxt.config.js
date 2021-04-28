@@ -1,6 +1,7 @@
 import config from 'config';
 
 const axiosConfig = config.axios;
+const debug = config.debug || !!process.env.DEBUG;
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -63,7 +64,7 @@ export default {
    ** Server Middleware
    */
   serverMiddleware: {
-    '/api': !config.debug && '~/api',
+    '/api': !debug && '~/api',
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -89,7 +90,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    watch: !config.debug ? ['@/api'] : [],
+    watch: !debug ? ['@/api'] : [],
     cache: true,
     parallel: true,
     babel: {

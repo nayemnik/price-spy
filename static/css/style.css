@@ -1079,9 +1079,9 @@ input[type=search]::-webkit-search-results-decoration {
   font-weight: normal;
   margin-bottom: 1rem;
 }
-.card .stars {
+/* .card .stars {
   margin: 0 auto;
-}
+} */
 .card-img, .card-name,
 .card .stars {
   margin-bottom: 0.5rem;

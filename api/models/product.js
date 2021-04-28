@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const mongooseLeanVirtuals = require('mongoose-lean-virtuals');
 const mongoosePaginate = require('mongoose-paginate-v2');
 const _ = require('lodash');
+const { differenceInDays } = require('date-fns');
+
 const Review = require('./review');
 
 const Schema = mongoose.Schema;
@@ -20,7 +22,7 @@ const ProductSchema = new Schema(
     status: { type: Number, required: true },
     // scraper_ip: { type: String },
     store: { type: Schema.Types.ObjectId, ref: 'Store' },
-    category: { type: Schema.Types.ObjectId, ref: 'Category' },
+    category: { type: Schema.Types.ObjectId, ref: 'Category', index: true },
   },
   {
     timestamps: {
@@ -30,14 +32,19 @@ const ProductSchema = new Schema(
   }
 );
 
+const reviewLimits = differenceInDays(new Date(), new Date(2021, 3, 27));
 ProductSchema.virtual('reviews', {
   ref: Review,
   localField: '_id',
   foreignField: 'product',
+  perDocumentLimit: reviewLimits,
+  options: { sort: { date: 1 } },
 });
-const rating = ProductSchema.virtual('rating');
-rating.get(function () {
+ProductSchema.virtual('rating').get(function () {
   return this.reviews.length ? _.sumBy(this.reviews, 'rating') / this.reviews.length : 0;
+});
+ProductSchema.virtual('reviewCount').get(function () {
+  return this.reviews.length;
 });
 
 ProductSchema.plugin(mongooseLeanVirtuals);

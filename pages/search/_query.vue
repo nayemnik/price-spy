@@ -154,7 +154,7 @@
                             <i class="fa fa-star" />
                           </div>
                         </div>
-                        <span class="review-count">({{ product.reviews.length }})</span>
+                        <span class="review-count">({{ product.reviewCount }})</span>
                       </div>
                     </div>
                   </div>

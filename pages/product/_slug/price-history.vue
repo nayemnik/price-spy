@@ -1,20 +1,20 @@
 <template>
   <div>
     <h1 class="title">
-      Lowest price {{ price.formatedAmount }} ({{ product.updated_at | date('yyyy-MM-dd') }})
+      Lowest price US ${{ lowestPrice.price }} ({{ lowestPrice.updated_at | date('yyyy-MM-dd') }})
     </h1>
-    <line-chart :chart-data="chartData" :options="chartOptions" :height="400" :width="1200" />
+    <chart
+      type="line"
+      :chart-data="chartData"
+      :options="chartOptions"
+      :height="400"
+      :width="1200"
+    />
   </div>
 </template>
 
 <script>
-import LineChart from '@/components/LineChart';
-import { format } from 'date-fns';
-
 export default {
-  components: {
-    LineChart,
-  },
   props: {
     product: {
       type: Object,
@@ -23,20 +23,26 @@ export default {
   },
   data() {
     return {
+      lowestPrice: {},
       chartData: {},
       chartOptions: {
-        aspectRatio: 0.5,
         legend: {
           display: false,
         },
         scales: {
           x: {
-            type: 'timeseries',
+            type: 'time',
+            ticks: {
+              source: 'data',
+            },
             time: {
               unit: 'day',
+              minUnit: 'day',
+              round: true,
               displayFormats: {
                 day: 'yyyy-MM-dd',
               },
+              tooltipFormat: 'yyyy-MM-dd',
             },
           },
           y: {
@@ -48,28 +54,30 @@ export default {
     };
   },
   async fetch() {
-    // TODO: get price histories
+    const priceHistory = await this.$axios.$get(`/product/${this.product._id}/price-history`, {
+      params: { page: this.$route.query.page },
+    });
+    this.chartData = {
+      labels: [],
+      datasets: [
+        {
+          label: 'Price',
+          backgroundColor: '#7cb5ec',
+          fill: false,
+          data: priceHistory.docs.map((p) => {
+            return {
+              x: new Date(p.updated_at),
+              y: p.minActivityAmount?.value ?? p.minAmount.value,
+            };
+          }),
+        },
+      ],
+    };
+    this.lowestPrice = await this.$axios.$get(`/product/${this.product._id}/lowest-price`);
   },
   computed: {
     price() {
       return this.product.minActivityAmount ?? this.product.minAmount;
-    },
-  },
-  mounted() {
-    this.fillData();
-  },
-  methods: {
-    fillData() {
-      this.chartData = {
-        labels: [format(new Date(this.product.updated_at), 'yyyy-MM-dd')],
-        datasets: [
-          {
-            label: 'Price',
-            backgroundColor: '#7cb5ec',
-            data: [this.price.value],
-          },
-        ],
-      };
     },
   },
 };
