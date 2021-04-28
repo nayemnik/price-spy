@@ -67,32 +67,6 @@ router.get('/:id/price-history', async function (req, res) {
       ...req.query,
     }
   );
-  priceHistory.docs.push({
-    _id: '60822669a3f80c1c8c95b8cc',
-    maxAmount: {
-      currency: 'USD',
-      formatedAmount: 'US $44.03',
-      value: 44.03,
-    },
-    minAmount: {
-      currency: 'USD',
-      formatedAmount: 'US $44.03',
-      value: 44.03,
-    },
-    created_at: '2021-04-07T01:57:20.239Z',
-    updated_at: '2021-04-07T01:57:20.239Z',
-    maxActivityAmount: {
-      currency: 'USD',
-      formatedAmount: 'US $23.01',
-      value: 23.01,
-    },
-    minActivityAmount: {
-      currency: 'USD',
-      formatedAmount: 'US $23.01',
-      value: 23.01,
-    },
-    id: '60822669a3f80c1c8c95b8cc',
-  });
   res.json(priceHistory);
 });
 router.get('/:id/lowest-price', async function (req, res) {
